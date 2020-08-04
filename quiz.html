@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>332 QUIZ</title>
+	<script>
+	</script>
+
+</head>
+<body>
+
+<h1 style="text-align:center;">Let's get fit!</h1>
+
+<div style="text-align:center;">
+	<h2 style="text-align:center;">System structure</h2>
+	<p style="text-align:center;" title="System Structure">As I am very passionate about fitness, I decided to choose a gym as the system for my project design. Consider a simple commercial gym oriented towards various classes. There are your usual 		customers of the gym, who pay for a monthly gym membership of their choosing, among 3 different ones. Although the gym is focused on classes, it also has all the equipment necessary for customers to just go and use those instead of attending any classes if they wish to do so. The customer could also use both services. Lastly, the classes are taught by Instructors/Trainers of the gym.
+	</p>
+</div>
+
+<ul>
+	<li>Equipment have a unique equipment ID and a type which can be free weights or machines.</li>
+    <li>Customers have a unique defining customer ID, a first name, a last name, a gender, an email, a phone number and a birth date.</li>
+    <li>The different 3 different gym memberships are defined by a unique ID, a type which can be either Basic, Premium, or Gold and a price per month.</li>
+    <li>The classes are defined by a unique class ID, a name, and a start and end times (of the day).</li>
+    <li>Lastly, the gym instructors have a trainer ID, a first name, a last name, an email and a phone number.</li>
+</ul>
+
+<div style="text-align:center;">
+	<img src="ERD_FINAAAL.png" alt="GYM ERD" style="width:600px;height:600px;">
+</div>
+
+<hr>
+<h2 style="text-align:center;">THE 3 LIFTING PILLARS:</h2>
+<ol type="1">
+	<li><ins><a href="#PU">Pull Up</a></ins></li>
+    <li><ins><a href="#BP">Bench Press</a></ins></li>
+    <li><ins><a href="#S">Squat</a></ins></li>
+</ol>
+<hr>
+
+<div style="text-align:center;padding:20px;">
+	<h3 id="PU">Pull-Up</h3>
+    <p>The pull up is, for me, the most effective and reliable back exercise. It is my preferred back exercise because it is the most effective lat-builder, while also requiring strong muscular responses from many secondary back muscles and also the biceps. It is a true test of a person's back strength and part of overall upper body strength. It is a badass exercises that every gym-goer must be proficient at.</p>
+    <img src="PULLUP.jpeg" alt="PULLUP" style="text-align:center;width:400px;height:300px;"><br>
+</div>
+<ol type="1">
+    	<li>Standing below the pull-up bar, grab the bar with both hands equally distances from each other, at around shoulder width.</li<
+        <li>Retract your scapula and push your chest outwards.</li>
+        <li>Pull yourself up towards the bar, until reaching the bar with your chin.</li>
+        <li>Slowly, lower yourself back down to starting position.</li>
+</ol>
+<hr>
+<div style="text-align:center;padding:20px;">
+	<h3 id="BP">Bench Press</h3>
+    <p>As most people would agree, the bench presss is the kind of the upper body lifts. It is for sure the single best chest exercise you can do. It allows you to overload the chest more than any other exercise, while being great at enabling progressive overload due to the use of the barbell. The bench press works primarily your pectoral muscles but secondarily it also works the shoulders and triceps to quite a high extent. It is a staple of any upper body muscle building routine and true test of a person's pectoral strength and part of overall upper body strength. It is a badass exercises that every gym-goer must be proficient at.</p>
+    <img src="bench_press.jpeg" alt="BENCH PRESS" style="text-align:center;width:400px;height:300px;"><br>
+</div>
+<ol type="1">
+    	<li>lay down on the bench, feet flat on the ground and with the barbell hovering over on top of your eyes.</li>
+        <li>Retract your scapula and push your chest outwards.</li>
+        <li>With your arms wider than your shoulder width, grab the barbell with both hands, and lower it towards your chest slowly.</li>
+        <li>Explosively push the bar straight up until your arms are vertical, focusing on contracting your chest.</li>
+</ol>
+<hr>
+
+<div style="text-align:center;padding:20px;">
+	<h3 id="S">Squat</h3>
+    <p>Finally, the squat is considered by many the king of all exercises. It is the definite winner for all of lower body muscles. It is for sure the single best legs exercise you can do. Similarly to the bench press, It allows you to overload the legs more than almost any other exercise, while being great at enabling progressive overload due to the use of the barbell. Thw squat works primarily your quadriceps, but is also great for hamstrings, gluteus and core muscles for stabilization. It is definitely a staple of any lower body muscle building routine and true test of a person's lower body strength and part of overall body strength. It is a badass exercises that every gym-goer must be proficient at.</p>
+    <img src="squat.jpeg" alt="SQUAT" style="text-align:center;width:400px;height:300px;"><br>
+</div>
+<ol type="1">
+    	<li>Facing away from the barbell, walk backwards until you feel the barbell, which should be at a similar height to you shoulders.</li>
+        <li>Grab the barbell with both your hands, supporting the barbell on your trapezoids, which is at the line between the neck and shoulders.</li>
+        <li>After having hold of the bar firmly, lower yourself down until your hamstring is parallel with the floor, by keeping your torso straight and just bending at your knees.</li>
+        <li>After reaching the desired position, elevate yourself back up, following the same cues as in step 3. .</li>
+</ol>
+<hr>
+
+<h3 style="text-align:center">Populating the database with the form(s) below:</h3>
+<div style="text-align:center">
+	<form name="quizform" action="quiz.php" method="post" onsubmit="return checkMyForm()">
+  		<fieldset>
+    		<legend><b>Equipment:</b></legend>
+    		<label for="type">Equipment type:</label>
+				<input type="radio" id="type" name="type" value="Machine">
+  			<label for="type">Machine</label>
+				<input type="radio" id="type" name="type" value="Free Weight">
+  			<label for="type">Free Weight</label><br>
+				<input type="submit" name="sb" value="submit1">
+
+  		</fieldset>
+
+  		<fieldset>
+    		<legend><b>Customers:</b></legend>
+    		<label for="cu_Fname">First Name:</label>
+    		<input type="text" id="cu_Fname" name="cu_Fname">
+				<label for="cu_Lname">Last Name:</label>
+    		<input type="text" id="cu_Lname" name="cu_Lname">
+				<label for="gender">Gender:</label>
+    		<input type="radio" id="gender" name="gender" value="Male">
+				<label for="gender">Male</label>
+				<input type="radio" id="gender" name="gender" value="Female">
+				<label for="gender">Female</label>
+    		<label for="cu_email">Email Address:</label>
+    		<input type="email" id="cu_email" name="cu_email">
+    		<label for="cu_phone">Phone Number:</label>
+    		<input type="tel" id="cu_phone" name="cu_phone" placeholder="123-456-7891" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    		<label for="bd">Birth Date:</label>
+    		<input type="date" id="bd" name="bd"><br>
+				<input type="submit" name="sb" value="submit2">
+
+  		</fieldset>
+
+        <fieldset>
+    		<legend><b>Memberships:</b></legend>
+    		<label for="price">Price/mo:</label>
+    		<input type="number" step="0.01" placeholder="1.23" id="price" name="price">
+    		<label for="m_type">Membership type:</label>
+				<input type="radio" id="m_type" name="m_type" value="Basic">
+				<label for="m_type">Basic</label>
+				<input type="radio" id="m_type" name="m_type" value="Premium">
+				<label for="m_type">Premium</label>
+				<input type="radio" id="m_type" name="m_type" value="Gold">
+				<label for="m_type">Gold</label><br>
+				<input type="submit" name="sb" value="submit3">
+
+  		</fieldset>
+
+        <fieldset>
+    		<legend><b>Classes:</b></legend>
+    		<label for="cl_name">Name:</label>
+    		<input type="text" id="cl_name" name="cl_name">
+    		<label for="start">Start time:</label>
+    		<input type="time" id="start" name="start">
+        <label for="end">Ending time:</label>
+    		<input type="time" id="end" name="end"><br>
+				<input type="submit" name="sb" value="submit4">
+
+  		</fieldset>
+
+        <fieldset>
+    		<legend><b>Trainers:</b></legend>
+    		<label for="t_Fname">First Name:</label>
+    		<input type="text" id="t_Fname" name="t_Fname">
+				<label for="t_Lname">Last Name:</label>
+    		<input type="text" id="t_Lname" name="t_Lname">
+    		<label for="t_email">Email Address:</label>
+    		<input type="email" id="t_email" name="t_email">
+        <label for="t_phone">Phone Number:</label>
+    		<input type="tel" id="t_phone" placeholder="123-456-7891" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="t_phone"><br>
+				<input type="submit" name="sb" value="submit5">
+  		</fieldset>
+			<input type="reset">
+	</form>
+</div>
+
+
+<script src="quiz.js"></script>
+</body>
+</html>

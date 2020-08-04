@@ -1,0 +1,93 @@
+CREATE TABLE Equipment(
+  EquipmentID int(3) UNIQUE NOT NULL AUTO_INCREMENT,
+  type ENUM('Machine', 'Free Weight'),
+  PRIMARY KEY (EquipmentID)
+);
+
+CREATE TABLE Customers(
+  CustomerID int(5) UNIQUE NOT NULL AUTO_INCREMENT,
+  Fname varchar(50),
+  Lname varchar(50),
+  gender ENUM('Male', 'Female'),
+  email varchar(50),
+  PhoneNumber char(12),
+  BirthDay DATE,
+  PRIMARY KEY (CustomerID)
+);
+
+CREATE TABLE Memberships(
+  MembershipID int(1) UNIQUE NOT NULL AUTO_INCREMENT,
+  PricePerMonth float(5),
+  type ENUM('Basic', 'Premium', 'Gold'),
+  PRIMARY KEY (MembershipID)
+);
+
+CREATE TABLE Classes(
+  ClassID int(2) UNIQUE NOT NULL AUTO_INCREMENT,
+  name varchar(50),
+  start TIME,
+  ends TIME,
+  PRIMARY KEY (ClassID)
+);
+
+CREATE TABLE Trainers(
+  TrainerID int(2) UNIQUE NOT NULL AUTO_INCREMENT,
+  Fname varchar(50),
+  Lname varchar(50),
+  email varchar(50),
+  PhoneNumber char(12),
+  PRIMARY KEY (TrainerID)
+);
+
+CREATE TABLE Utilize(
+  CustomerID int(5) UNIQUE NOT NULL,
+  EquipmentID int(3) UNIQUE NOT NULL,
+  PRIMARY KEY (CustomerID, EquipmentID),
+  FOREIGN KEY (CustomerID) REFERENCES Customers (CustomerID),
+  FOREIGN KEY (EquipmentID) REFERENCES Equipment (EquipmentID)
+);
+
+CREATE TABLE Orders(
+  CustomerID int(5) NOT NULL,
+  MembershipID int(1) NOT NULL,
+  OrderDay DATE,
+  PaymentDay int(2),
+  PRIMARY KEY (CustomerID, MembershipID),
+  FOREIGN KEY (CustomerID) REFERENCES Customers (CustomerID),
+  FOREIGN KEY (MembershipID) REFERENCES Memberships (MembershipID)
+);
+
+CREATE TABLE Attend(
+  CustomerID int(5) NOT NULL,
+  ClassID int(2) NOT NULL,
+  PRIMARY KEY (CustomerID, ClassID),
+  FOREIGN KEY (CustomerID) REFERENCES Customers (CustomerID),
+  FOREIGN KEY (ClassID) REFERENCES Classes (ClassID)
+);
+
+CREATE TABLE Teach(
+  ClassID int(2) NOT NULL,
+  TrainerID int(2) NOT NULL,
+  PRIMARY KEY (ClassID, TrainerID),
+  FOREIGN KEY (ClassID) REFERENCES Classes (ClassID),
+  FOREIGN KEY (TrainerID) REFERENCES Trainers (TrainerID)
+);
+
+
+QUERIES FOR PART 3 BELOW
+
+SELECT CustomerID, type
+FROM Orders AS o, Memberships AS m
+WHERE o.MembershipID = m.MembershipID AND m.type='Gold'
+
+SELECT Fname, Lname
+FROM Customers AS cu, Attend AS a, Classes AS cl
+WHERE cu.CustomerID=a.CustomerID AND a.ClassID=cl.ClassID AND cl.name='Boxing'
+
+
+SELECT ClassID, name, COUNT(a.ClassID) AS NumberCustomers
+FROM Classes AS cl, Attend AS a
+WHERE c.ClassID=cl.ClassID
+GROUP BY a.ClassID
+HAVING NumberCustomers > 5
+ORDER BY NumberCustomers DESC
